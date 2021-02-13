@@ -15,6 +15,7 @@ export class ShipsDetailsComponent implements OnChanges {
   config: any;
   shipId: string = '';
   url: string = '';
+  urlBaseImg: string = 'https://starwars-visualguide.com/assets/img/starships/';
   // Modal
   titleDetails: string = '';
   modelDetails: string = '';
@@ -32,9 +33,10 @@ export class ShipsDetailsComponent implements OnChanges {
   }
 
   getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
+    this.shipId = url.slice(31,-1)
+    const fileImg = `${this.shipId}.jpg`
+    const urlImage = `${this.urlBaseImg}${fileImg}`;
+    return urlImage;
   }
 
   pageChanged(event){
