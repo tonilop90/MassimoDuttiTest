@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IUser } from 'src/app/interfaces/user';
 
 // JSON
 import usersList from 'src/assets/json/users.json';
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   dataLoading: boolean = false;
-  users: any = usersList;
+  users: Array<IUser> = usersList;
   unregistered: boolean = false;
   invalid: boolean = false;
 
