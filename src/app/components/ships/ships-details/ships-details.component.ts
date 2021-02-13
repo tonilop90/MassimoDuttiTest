@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { IShipsResponse } from 'src/app/interfaces/swapiResponses';
 import { ShipsService } from 'src/app/services/ships.service';
 
 declare var $: any;
@@ -11,7 +12,7 @@ declare var $: any;
 })
 export class ShipsDetailsComponent implements OnChanges {
 
-  @Input() dataList: any;
+  @Input() dataList: IShipsResponse;
   config: any;
   shipId: string = '';
   url: string = '';

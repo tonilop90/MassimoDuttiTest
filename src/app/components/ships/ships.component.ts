@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IShipsResponse } from 'src/app/interfaces/swapiResponses';
 import { ShipsService } from 'src/app/services/ships.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ShipsService } from 'src/app/services/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: any = [];
+  public dataList: IShipsResponse;
 
   constructor( private shipsService: ShipsService) {}
 
