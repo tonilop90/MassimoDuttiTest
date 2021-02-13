@@ -35,4 +35,4 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
-
+1.1 Generado el módulo de auth para alojar los componentes de Login y Register. Creado como módulo por que compartirán un servicio en común de authenticación.
