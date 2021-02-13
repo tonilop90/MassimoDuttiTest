@@ -38,3 +38,5 @@ Navigate to `http://localhost:4200/`.
 1. REESTRUCTURA:
     1. Generado el módulo de auth para alojar los componentes de Login y Register. Creado como módulo por que compartirán un servicio en común de authenticación.
 4. Adaptación de de la cantidad de naves que se estaban mostrando con la de la API. Realizar llamada a la página que se solicita aprovechando que el componente 'pagination-controls' nos devuelve la página deseada en  la variable de 'event'. Y he creado un servicio a parte del existente para que la API nos devuelva la página que deseamos.
+
+6. Cambiado la manera de generar la url, recuperando el Id de la nave de la url que se le pasa por parámetro a la función getStarshipId(). Se ha añadido la variable urlBaseImg para concatenarla con el Id de la nave recuperado.
