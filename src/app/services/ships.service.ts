@@ -24,4 +24,10 @@ export class ShipsService {
       map( data => { return data })
       );
   }
+
+  getPageShips(url: string): Observable<any>{
+    return this.http.get(url).pipe(
+      map(data => { return data })
+    )
+  }
 }
