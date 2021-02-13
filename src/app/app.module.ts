@@ -6,16 +6,13 @@ import { PrincipalModule } from './components/principal/principal.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './components/auth/register/register.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { AuthModule } from './components/auth/auth.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     PrincipalComponent
   ],
   imports: [
@@ -23,8 +20,8 @@ import { PrincipalComponent } from './components/principal/principal.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    PrincipalModule
-
+    PrincipalModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
