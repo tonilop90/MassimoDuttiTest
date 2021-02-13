@@ -37,6 +37,7 @@ Navigate to `http://localhost:4200/`.
 
 1. REESTRUCTURA:
     1. Generado el módulo de auth para alojar los componentes de Login y Register. Creado como módulo por que compartirán un servicio en común de authenticación.
+    2. Al ver que de momento solo se están tratando con Usuarios y naves, mi idea ha sido generar una interface por cada uno de ellos. Al crear la interface IShips me he dado cuenta de que podía generar una para el tipo de respuesta de SWAPI para la request de Ships.
 4. Adaptación de de la cantidad de naves que se estaban mostrando con la de la API. Realizar llamada a la página que se solicita aprovechando que el componente 'pagination-controls' nos devuelve la página deseada en  la variable de 'event'. Y he creado un servicio a parte del existente para que la API nos devuelva la página que deseamos.
 
-6. Cambiado la manera de generar la url, recuperando el Id de la nave de la url que se le pasa por parámetro a la función getStarshipId(). Se ha añadido la variable urlBaseImg para concatenarla con el Id de la nave recuperado.
+6. Cambiar manera de generar la url, recuperando el Id de la nave de la url que se le pasa por parámetro a la función getStarshipId(). Se ha añadido la variable urlBaseImg para concatenarla con el Id de la nave recuperado.
