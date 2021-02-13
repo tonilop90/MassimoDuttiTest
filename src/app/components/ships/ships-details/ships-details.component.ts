@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+import { ShipsService } from 'src/app/services/ships.service';
+
 declare var $: any;
 
 
@@ -7,7 +9,7 @@ declare var $: any;
   templateUrl: './ships-details.component.html',
   styleUrls: ['./ships-details.component.scss']
 })
-export class ShipsDetailsComponent implements OnInit {
+export class ShipsDetailsComponent implements OnChanges {
 
   @Input() dataList: any;
   config: any;
@@ -18,15 +20,15 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor() { 
+  constructor(private shipsService: ShipsService) { 
   }
-  
-  ngOnInit(): void {
-      this.config = {
-        itemsPerPage: 5,
-        currentPage: 1,
-        totalItems: this.dataList.length
-      };
+
+  ngOnChanges(){
+    this.config = {
+      itemsPerPage: 10,
+      currentPage: 1,
+      totalItems: this.dataList.count ? this.dataList.count : undefined 
+    };
   }
 
   getStarshipId(url) {
@@ -36,7 +38,12 @@ export class ShipsDetailsComponent implements OnInit {
   }
 
   pageChanged(event){
+    const url = `http://swapi.dev/api/starships/?page=${event}`;
+    this.shipsService.getPageShips(url).subscribe((ships) => {
+      this.dataList.results = ships.results;
+    })
     this.config.currentPage = event;
+
   }
 
   openDetails(details) {
