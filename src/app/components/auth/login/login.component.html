@@ -43,5 +43,10 @@
                 <i>Unregistered user</i>
             </span>
         </div>
+        <div class="input-group-append" *ngIf="authenticationError">
+            <span class="colorInvalid">
+                <i>Authentication error</i>
+            </span>
+        </div>
     </form>
 </div>
