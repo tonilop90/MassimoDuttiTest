@@ -11,7 +11,6 @@ export class AuthService {
 
   login(filterUser: any, password: string, userLogin: string): boolean {
     if(filterUser[0].password == password && filterUser[0].username == userLogin){
-      console.log(filterUser, password, userLogin);
       localStorage.setItem('loginKey', `${userLogin}_${Date.now().toString()}`);
       return true;
     }
