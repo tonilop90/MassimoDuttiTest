@@ -41,6 +41,8 @@ Navigate to `http://localhost:4200/`.
 
 2. Se ha generado dos funciones en el servicio de Auth para el Login y el Signup. El Login simplemente comprueba las credenciales introducidas con las del listado de simulación de usuarios. Si el proceso es correcto, el servicio se encarga de añadir una key en LocalStorage. El Signup básicamente comprueba si el objeto mandado es del tipo/estructura que queremos guardar y lo intenta añadir al array de usuarios del listado. Si el proceso funciona y no da error , el servicio añade (como el Login) la misma key generada. Para que no se pueda acceder a la pagina /ships he añadido un Guard para que comprueba si está loggeado el usuario para poder acceder. En caso de que el usuario no esté loggeado ( no tenga la key en el LocalStorage) se le redirigirá a la página de Login.
 
+3. Instalación NGRX para la implementación. Creado Actions y Reducers, solo he generado en el state de la applicacion una variable llamado ship que es en la pagina del listado está el usuario ahora mismo.
+
 4. Adaptación de de la cantidad de naves que se estaban mostrando con la de la API. Realizar llamada a la página que se solicita aprovechando que el componente 'pagination-controls' nos devuelve la página deseada en  la variable de 'event'. Y he creado un servicio a parte del existente para que la API nos devuelva la página que deseamos.
 
 6. Cambiar manera de generar la url, recuperando el Id de la nave de la url que se le pasa por parámetro a la función getStarshipId(). Se ha añadido la variable urlBaseImg para concatenarla con el Id de la nave recuperado.
