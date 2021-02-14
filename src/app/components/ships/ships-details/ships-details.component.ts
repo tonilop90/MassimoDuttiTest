@@ -1,6 +1,9 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { IShipsResponse } from 'src/app/interfaces/swapiResponses';
 import { ShipsService } from 'src/app/services/ships.service';
+import { changePage } from 'src/app/actions/ships.actions';
 
 declare var $: any;
 
@@ -16,19 +19,21 @@ export class ShipsDetailsComponent implements OnChanges {
   config: any;
   shipId: string = '';
   url: string = '';
+  pageList$: Observable<number>;
   urlBaseImg: string = 'https://starwars-visualguide.com/assets/img/starships/';
   // Modal
   titleDetails: string = '';
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor(private shipsService: ShipsService) { 
+  constructor(private shipsService: ShipsService, private store: Store<{ ship: number }>) {
+    this.pageList$ = store.select('ship');
   }
 
   ngOnChanges(){
     this.config = {
       itemsPerPage: 10,
-      currentPage: 1,
+      currentPage: this.pageList$,
       totalItems: this.dataList.count ? this.dataList.count : undefined 
     };
   }
@@ -46,7 +51,7 @@ export class ShipsDetailsComponent implements OnChanges {
       this.dataList.results = ships.results;
     })
     this.config.currentPage = event;
-
+    this.store.dispatch(changePage({page: event}));
   }
 
   openDetails(details) {
