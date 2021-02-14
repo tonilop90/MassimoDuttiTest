@@ -9,7 +9,9 @@ import { AuthGuardService } from './guards/authGuard';
 // Components
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './components/principal/principal.component';
-
+// Store & Reducers 
+import { StoreModule } from '@ngrx/store';
+import { shipReducer } from './reducers/ships.reducer';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { PrincipalComponent } from './components/principal/principal.component';
     FormsModule,
     ReactiveFormsModule,
     PrincipalModule,
-    AuthModule
+    AuthModule,
+    StoreModule.forRoot({ship: shipReducer})
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
